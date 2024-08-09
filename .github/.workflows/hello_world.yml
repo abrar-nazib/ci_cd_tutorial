@@ -1,0 +1,26 @@
+name: Hello World Workflow
+
+on: # Events
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch: # Manual trigger [It will put a button in the Actions tab]
+
+jobs:
+  hello: # Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # Download the repository
+      - name: Hello World
+        run: echo "Hello World"
+        shell: bash # specify the shell to run the command
+  
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Goodbye World
+        run: echo "Goodbye World"
+        shell: bash # specify the shell to run the command
